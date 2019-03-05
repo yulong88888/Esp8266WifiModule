@@ -1,0 +1,17 @@
+{
+    "terminal.integrated.env.windows": {
+        "PATH": "C:\\Users\\YuLong\\.platformio\\penv\\Scripts;C:\\Users\\YuLong\\.platformio\\penv;D:\\Python\\Python27\\;D:\\Python\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;D:\\JAVA\\jdk\\bin;D:\\nodejs\\;D:\\Git\\cmd;D:\\PuTTY\\;D:\\WinSCP\\;D:\\Android\\android-sdk-windows\\platform-tools;D:\\Redis-x64;D:\\emqx\\bin;C:\\Users\\YuLong\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\YuLong\\AppData\\Roaming\\npm;D:\\Fiddler;D:\\Python\\Python27\\;D:\\Python\\Python27\\Scripts;C:\\Windows\\system32;C:\\Windows;C:\\Windows\\System32\\Wbem;C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\;C:\\Windows\\System32\\OpenSSH\\;D:\\JAVA\\jdk\\bin;D:\\nodejs\\;D:\\Git\\cmd;D:\\PuTTY\\;D:\\WinSCP\\;D:\\Android\\android-sdk-windows\\platform-tools;D:\\Redis-x64;D:\\emqx\\bin;C:\\Users\\YuLong\\AppData\\Local\\Microsoft\\WindowsApps;C:\\Users\\YuLong\\AppData\\Roaming\\npm;D:\\Fiddler",
+        "PLATFORMIO_CALLER": "vscode"
+    },
+    "files.associations": {
+        "*.tcc": "cpp",
+        "esp8266wifi.h": "c",
+        "adafruit_mqtt_client.h": "c",
+        "array": "cpp",
+        "deque": "cpp",
+        "unordered_map": "cpp",
+        "vector": "cpp",
+        "initializer_list": "cpp",
+        "list": "cpp"
+    }
+}
