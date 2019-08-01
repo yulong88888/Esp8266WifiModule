@@ -14,11 +14,11 @@
 #define LED_PIN 2
 #define DEFAULT_LAN_PORT 12476
 
-#define SCREEN_SDA 2
-#define SCREEN_SCL 0
+#define SCREEN_SDA 12
+#define SCREEN_SCL 13
 
-#define RESET_PIN 4
+#define RESET_PIN 0
 
-#define OUTPUT_PIN 5
+#define OUTPUT_PIN 4
 
 #endif

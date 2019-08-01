@@ -32,11 +32,11 @@ struct CommunicationObj {
  */
 void setOutput(bool b) {
   communicationObj.state = b;
-  if (b == digitalRead(OUTPUT_PIN)) {
-    return;
-  } else {
-    digitalWrite(OUTPUT_PIN, b);
-  }
+  // if (b == digitalRead(OUTPUT_PIN)) {
+  //   return;
+  // } else {
+    digitalWrite(OUTPUT_PIN, !b);
+  // }
 }
 
 //设备的逻辑是反的，方便上位机阅读
@@ -90,11 +90,13 @@ void taskCallback(String &topic, String &payload) {
  * 系统初始化
  */
 void init_sys() {
+  // pinMode(OUTPUT_PIN, OUTPUT);
+  digitalWrite(OUTPUT_PIN, true);
+  pinMode(OUTPUT_PIN, OUTPUT_OPEN_DRAIN);
   Serial.begin(115200);
   oled.init();
   wxAirkiss.init();
   pinMode(RESET_PIN, INPUT_PULLUP);
-  pinMode(OUTPUT_PIN, OUTPUT);
 }
 
 /**
