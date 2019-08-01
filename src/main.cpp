@@ -58,12 +58,17 @@ String getUrl(bool isSubscribe) {
 void taskCallback(String &topic, String &payload) {
   Serial.println(payload);
   // oled.setText((char *)payload.c_str());
-  StaticJsonBuffer<512> jsonBuffer;
-  JsonObject &root = jsonBuffer.parseObject(payload);
+  // StaticJsonBuffer<512> jsonBuffer;
+  // JsonObject &root = jsonBuffer.parseObject(payload);
+
+  DynamicJsonDocument root(512);
+  deserializeJson(root, payload);
+
   String id = root["id"];
   int mode = root["mode"];
   bool state = root["state"];
-  JsonArray &array = root["cron"];
+  // JsonArray &array = root["cron"];
+  JsonArray array = root["cron"];
   //手动模式
   if (mode == -1) {
     setOutput(state);

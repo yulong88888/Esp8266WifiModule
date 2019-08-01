@@ -2,10 +2,10 @@
 #include "OLEDDisplayUi.h"
 #include "SSD1306Wire.h"
 #include "Wire.h"
-
+#include "config.h"
 #include "images.h"
 
-SSD1306Wire display(0x3c, 2, 0);
+SSD1306Wire display(0x3c, SCREEN_SDA, SCREEN_SCL);
 
 OLEDDisplayUi ui(&display);
 
