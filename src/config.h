@@ -17,7 +17,7 @@
 #define SCREEN_SDA 12
 #define SCREEN_SCL 13
 
-#define RESET_PIN 0
+#define RESET_PIN 5
 
 #define OUTPUT_PIN 4
 

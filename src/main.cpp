@@ -35,7 +35,7 @@ void setOutput(bool b) {
   // if (b == digitalRead(OUTPUT_PIN)) {
   //   return;
   // } else {
-    digitalWrite(OUTPUT_PIN, !b);
+  digitalWrite(OUTPUT_PIN, b);
   // }
 }
 
@@ -90,13 +90,15 @@ void taskCallback(String &topic, String &payload) {
  * 系统初始化
  */
 void init_sys() {
-  // pinMode(OUTPUT_PIN, OUTPUT);
-  digitalWrite(OUTPUT_PIN, true);
-  pinMode(OUTPUT_PIN, OUTPUT_OPEN_DRAIN);
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, LOW);
+  delay(10);
+  digitalWrite(LED_PIN, HIGH);
+  pinMode(OUTPUT_PIN, OUTPUT);
+  pinMode(RESET_PIN, INPUT_PULLUP);
   Serial.begin(115200);
   oled.init();
   wxAirkiss.init();
-  pinMode(RESET_PIN, INPUT_PULLUP);
 }
 
 /**
