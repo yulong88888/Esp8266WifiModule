@@ -21,4 +21,6 @@
 
 #define OUTPUT_PIN 4
 
+#define MANUAL_PIN 0
+
 #endif

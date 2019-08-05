@@ -96,6 +96,7 @@ void init_sys() {
   digitalWrite(LED_PIN, HIGH);
   pinMode(OUTPUT_PIN, OUTPUT);
   pinMode(RESET_PIN, INPUT_PULLUP);
+  pinMode(MANUAL_PIN, INPUT_PULLUP);
   Serial.begin(115200);
   oled.init();
   wxAirkiss.init();
@@ -131,19 +132,43 @@ String format(String str) {
 /**
  * 清空WiFi信息(重新配网)
  */
-unsigned long btnPressTime = 0;
+long btnManualPressTime = 0;
+long btnResetPressTime = 0;
+
+void manual() {
+  if (digitalRead(MANUAL_PIN)) {
+    if (btnManualPressTime != 0) {
+      if (millis() - btnManualPressTime < 1000 && btnManualPressTime > 0) {
+        oled.setText((char *)"manual");
+        setOutput(!communicationObj.state);
+      }
+      btnManualPressTime = 0;
+    }
+  } else {
+    delay(10);
+    if (btnManualPressTime < 0) {
+      return;
+    }
+    if (btnManualPressTime == 0) {
+      btnManualPressTime = millis();
+    }
+    if (millis() - btnManualPressTime > 3000) {
+      oled.setText((char *)"fuck");
+      btnManualPressTime = -1;
+    }
+  }
+}
 
 void reset() {
   if (digitalRead(RESET_PIN)) {
-    // oled.setText((char*)"H");
-    if (btnPressTime != 0) {
-      btnPressTime = 0;
+    if (btnResetPressTime != 0) {
+      btnResetPressTime = 0;
     }
   } else {
-    if (btnPressTime == 0) {
-      btnPressTime = millis();
+    if (btnResetPressTime == 0) {
+      btnResetPressTime = millis();
     }
-    if (millis() - btnPressTime > 3000) {
+    if (millis() - btnResetPressTime > 3000) {
       oled.setText((char *)"reset");
       wxAirkiss.clear();
     }
@@ -255,4 +280,5 @@ void loop() {
   }
 
   reset();
+  manual();
 }
